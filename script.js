@@ -753,4 +753,67 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+
+  // =========================================================================
+  // 9. HALAMAN AWAL: LOGIKA AMPLOP SURAT (FROM FIANI TO GIL CHAN)
+  // =========================================================================
+  const envelopeScreen = document.getElementById('welcome-envelope-screen');
+  const envelopeBox = document.getElementById('envelope-clickable');
+  const reopenEnvelopeBtn = document.getElementById('reopen-envelope-btn');
+
+  // Kunci scroll halaman saat amplop awal aktif
+  if (envelopeScreen && !envelopeScreen.classList.contains('opened')) {
+    document.body.style.overflow = 'hidden';
+  }
+
+  function openEnvelope() {
+    if (!envelopeBox || !envelopeScreen) return;
+    if (envelopeBox.classList.contains('is-opening')) return;
+
+    initAudioContext();
+    playGrandFanfare();
+
+    envelopeBox.classList.add('is-opening');
+
+    // Partikel konfeti & kelopak bunga memancar dari amplop
+    const rect = envelopeBox.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    launchConfetti(centerX, centerY, 60);
+
+    setTimeout(() => {
+      launchConfetti(centerX - 60, centerY, 30);
+      launchConfetti(centerX + 60, centerY, 30);
+    }, 250);
+
+    // Masuk ke halaman utama secara mulus
+    setTimeout(() => {
+      envelopeScreen.classList.add('opened');
+      document.body.style.overflow = '';
+      showToast('🌸 Selamat datang, Gil chan! Bukti persahabatan kita ✨');
+    }, 850);
+  }
+
+  if (envelopeBox) {
+    envelopeBox.addEventListener('click', openEnvelope);
+    envelopeBox.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openEnvelope();
+      }
+    });
+  }
+
+  // Tombol untuk membuka amplop awal lagi kapan saja
+  if (reopenEnvelopeBtn) {
+    reopenEnvelopeBtn.addEventListener('click', () => {
+      if (!envelopeScreen || !envelopeBox) return;
+      playPopSound();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      envelopeBox.classList.remove('is-opening');
+      envelopeScreen.classList.remove('opened');
+      document.body.style.overflow = 'hidden';
+      showToast('✉️ Amplop dari Fiani dibuka kembali');
+    });
+  }
 });

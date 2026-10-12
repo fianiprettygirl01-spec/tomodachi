@@ -33,6 +33,56 @@
   <!-- Ambient Sky Particles Canvas -->
   <canvas id="sky-canvas"></canvas>
 
+  <!-- Halaman Awal: Amplop Putih Berlatar Biru (Welcome Envelope Screen) -->
+  <div id="welcome-envelope-screen" class="envelope-screen">
+    <div class="envelope-screen-overlay"></div>
+
+    <div class="envelope-wrapper-outer">
+      <div class="envelope-intro-badge">
+        <span class="envelope-dot"></span>
+        <span class="envelope-intro-text">Pesan Masuk Untukmu • 💌</span>
+      </div>
+
+      <!-- Amplop Putih Interaktif -->
+      <div class="envelope-box" id="envelope-clickable" role="button" tabindex="0" title="Klik untuk membuka surat dari Fiani!">
+        <div class="envelope-body">
+          <!-- Inside Letter Preview yang akan keluar saat amplop dibuka -->
+          <div class="envelope-paper-inside" id="envelope-paper">
+            <div class="paper-kanji">おつかれさまでした</div>
+            <div class="paper-sub">Special for Gil chan... 🌸</div>
+          </div>
+
+          <!-- Flap (Penutup Segitiga Atas) -->
+          <div class="envelope-top-flap" id="envelope-top-flap"></div>
+
+          <!-- Bagian Depan Amplop dengan Tulisan: from Fiani to Gil chan -->
+          <div class="envelope-front-pocket">
+            <div class="envelope-stamp-badge">
+              <span class="stamp-icon">🐈</span>
+              <span class="stamp-text">FIANI</span>
+            </div>
+            
+            <div class="envelope-center-text">
+              <div class="env-line-from">from <strong class="env-highlight">Fiani</strong></div>
+              <div class="env-divider-dot">✦</div>
+              <div class="env-line-to">to <strong class="env-highlight">Gil chan</strong></div>
+            </div>
+
+            <div class="envelope-jp-footnote">フィアニからギルちゃんへ</div>
+          </div>
+        </div>
+
+        <div class="envelope-shadow-floor"></div>
+      </div>
+
+      <!-- Petunjuk Klik -->
+      <div class="envelope-tap-guide">
+        <span class="guide-hand">👆</span>
+        <span class="guide-text">Klik amplop untuk membuka surat</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Top Navigation & Controls Bar -->
   <header class="site-header">
     <div class="header-container">
@@ -42,6 +92,12 @@
       </div>
 
       <div class="header-actions">
+        <!-- Re-open Envelope Button -->
+        <button id="reopen-envelope-btn" class="ctrl-btn" title="Buka amplop awal lagi" aria-label="Buka Amplop">
+          <span class="ctrl-icon">✉️</span>
+          <span class="ctrl-text">Amplop</span>
+        </button>
+
         <!-- Ambient Lo-fi Audio Toggle -->
         <button id="audio-toggle-btn" class="ctrl-btn" title="Nyalakan / Matikan Musik Lofi Pengiring"
           aria-label="Toggle Sound">
@@ -329,8 +385,10 @@
       <div class="modal-message">
         <p class="modal-headline">"From Fiani Sekai Ni Ichiban Yasashii</p>
         <p class="modal-text">
-          Terima kasih atas segala tawa, waktu, cerita, dan dukungan yang udah lu kasih selama ini. Terima kasih udah
-          jadi sosok yang tangguh, setia kawan, dan pantang menyerah. Dunia beruntung punya orang sehebat lu, bro!
+          Aku ngetik ini di jam 01:12 WIB 13/10/2026. Ganbatte nee. Apapun itu, aku senang berteman dengan gil chan yang
+          tsuyoi
+          ini. Arigato nee sudah menjadi tomodachi yang paling seru di HT, a maksudku, di sekai ini.
+          あなたはせかいでいちばんたのしいともだちだよ!
         </p>
       </div>
 

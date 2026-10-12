@@ -96,6 +96,327 @@ body {
 }
 
 /* ==========================================================================
+   HALAMAN AWAL: AMPLOP SURAT (WELCOME ENVELOPE SCREEN)
+   ========================================================================== */
+.envelope-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--sky-100);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.35) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(251, 113, 133, 0.22) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(14, 165, 233, 0.3) 0px, transparent 65%);
+  transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1), transform 0.75s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.75s ease;
+  overflow: hidden;
+}
+
+.envelope-screen.opened {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(1.08);
+}
+
+.envelope-screen-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(224, 242, 254, 0.75) 100%), url('./sky.jpg');
+  background-size: cover;
+  background-position: center top;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.envelope-wrapper-outer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.envelope-intro-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(2, 132, 199, 0.12);
+  border: 1px solid rgba(2, 132, 199, 0.25);
+  color: var(--sky-800);
+  padding: 0.5rem 1.3rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.86rem;
+  margin-bottom: 2.2rem;
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.envelope-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--coral-500);
+  border-radius: 50%;
+  animation: pulseDot 2s infinite;
+}
+
+/* The Envelope Box */
+.envelope-box {
+  width: 370px;
+  max-width: 90vw;
+  height: 245px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  animation: floatEnvelope 4s ease-in-out infinite;
+  transition: transform var(--transition-bounce);
+}
+
+.envelope-box:hover {
+  transform: translateY(-8px) scale(1.03);
+}
+
+@keyframes floatEnvelope {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.envelope-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 22px;
+  perspective: 1000px;
+}
+
+/* Inside Paper Preview */
+.envelope-paper-inside {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  right: 20px;
+  height: 195px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(12, 74, 110, 0.08);
+  padding: 1.8rem 1.2rem;
+  z-index: 1;
+  text-align: center;
+  border: 1px solid rgba(14, 165, 233, 0.15);
+  transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.envelope-box.is-opening .envelope-paper-inside {
+  transform: translateY(-95px);
+}
+
+.paper-kanji {
+  font-family: var(--font-jp);
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--sky-900);
+  margin-bottom: 0.35rem;
+}
+
+.paper-sub {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--coral-500);
+}
+
+/* Flap Penutup Amplop */
+.envelope-top-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  z-index: 4;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.25s ease;
+  filter: drop-shadow(0 6px 8px rgba(12, 74, 110, 0.12));
+  border-radius: 22px 22px 0 0;
+}
+
+.envelope-box.is-opening .envelope-top-flap {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+
+/* Bagian Depan Amplop */
+.envelope-front-pocket {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, #ffffff 60%, #f0f9ff 100%);
+  border-radius: 22px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 25px 50px -12px rgba(12, 74, 110, 0.22), 0 0 0 1px rgba(56, 189, 248, 0.25);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.6rem 2rem 1.4rem;
+  overflow: hidden;
+  text-align: left;
+}
+
+.envelope-stamp-badge {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.4rem;
+  border: 2px dashed var(--coral-500);
+  border-radius: 10px;
+  padding: 0.3rem 0.65rem;
+  background: rgba(244, 63, 94, 0.08);
+  color: var(--coral-600);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  transform: rotate(4deg);
+}
+
+.envelope-center-text {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.env-line-from {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--slate-600);
+  letter-spacing: 0.02em;
+}
+
+.env-divider-dot {
+  color: var(--sky-400);
+  font-size: 0.85rem;
+  line-height: 1;
+  margin: 0.1rem 0 0.1rem 0.2rem;
+}
+
+.env-line-to {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--slate-700);
+  letter-spacing: 0.02em;
+}
+
+.env-highlight {
+  font-weight: 800;
+  color: var(--sky-900);
+  position: relative;
+}
+
+.envelope-jp-footnote {
+  font-family: var(--font-jp);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--sky-700);
+  opacity: 0.85;
+  margin-top: 0.4rem;
+}
+
+.envelope-shadow-floor {
+  width: 290px;
+  height: 18px;
+  background: radial-gradient(ellipse, rgba(12, 74, 110, 0.22) 0%, transparent 75%);
+  margin: 1.5rem auto 0;
+  border-radius: 50%;
+  filter: blur(5px);
+  animation: shadowPulse 4s ease-in-out infinite;
+}
+
+@keyframes shadowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(0.85);
+    opacity: 0.4;
+  }
+}
+
+.envelope-tap-guide {
+  margin-top: 1.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--sky-900);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.6rem 1.4rem;
+  border-radius: 9999px;
+  border: 1px solid var(--sky-200);
+  box-shadow: 0 4px 16px rgba(12, 74, 110, 0.08);
+  animation: pulseGuide 2.2s infinite ease-in-out;
+}
+
+@keyframes pulseGuide {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.pulse-hand {
+  font-size: 1.15rem;
+  animation: handBounce 1.5s infinite;
+}
+
+@keyframes handBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 480px) {
+  .envelope-box {
+    width: 320px;
+    height: 220px;
+  }
+  .envelope-front-pocket {
+    padding: 1.4rem 1.4rem 1.2rem;
+  }
+  .env-line-from {
+    font-size: 1.05rem;
+  }
+  .env-line-to {
+    font-size: 1.18rem;
+  }
+}
+
+/* ==========================================================================
    HEADER / NAVBAR
    ========================================================================== */
 .site-header {
