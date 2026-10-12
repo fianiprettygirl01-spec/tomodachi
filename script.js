@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       osc.start(now);
       osc.stop(now + 0.12);
-    } catch (e) {}
+    } catch (e) { }
   }
 
   // Sound Effect: Card Flip
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       osc.start(now);
       osc.stop(now + 0.08);
-    } catch (e) {}
+    } catch (e) { }
   }
 
   // Sound Effect: Grand Fanfare / Sparkle Chime for Arigatou Surprise
@@ -184,8 +184,8 @@ document.addEventListener('DOMContentLoaded', () => {
       this.rotation = Math.random() * Math.PI * 2;
       this.rotSpeed = (Math.random() - 0.5) * 0.03;
       // Palette from theme: Soft Rose Petals & Sky sparkles
-      this.color = this.type === 'petal' 
-        ? `rgba(251, 113, 133, ${this.opacity})` 
+      this.color = this.type === 'petal'
+        ? `rgba(251, 113, 133, ${this.opacity})`
         : `rgba(56, 189, 248, ${this.opacity})`;
     }
 
@@ -364,7 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
   modalConfettiBtn.addEventListener('click', () => {
     playGrandFanfare();
     launchConfetti(window.innerWidth / 2, window.innerHeight * 0.5, 90);
-    showToast('🎉 Kembang api meluncur lagi! Respect bro!');
+    showToast('Haik, gil chan');
   });
 
   // Modal Reaction Buttons
@@ -372,10 +372,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const reactToast = document.getElementById('reaction-toast');
 
   const reactionMessages = {
-    '👊': 'Bro Fist diterima! Solid selalu selamanya! 👊',
-    '🔥': 'Semangat membara pantang padam! Let’s go! 🔥',
-    '🍻': 'Yuk agendain nongkrong santai segera! ☕🍻',
-    '❤️': 'Big respect for you, my brother! ❤️'
+    '👊': 'Ganbatte nee! 👊',
+    '🔥': 'Ini api untuk bakar sate btw 🔥',
+    '💫': 'Kakkoii nee, Gil chan 💫',
+    '❤️': 'Big respect for, Gil chan ❤️'
   };
 
   reactBtns.forEach(btn => {
@@ -383,7 +383,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const reaction = btn.dataset.reaction;
       playPopSound();
       launchConfetti(window.innerWidth / 2, window.innerHeight * 0.6, 25);
-      
+
       reactToast.textContent = reactionMessages[reaction] || 'Respon tercatat!';
       reactToast.style.opacity = '1';
 
@@ -407,13 +407,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const bubbleText = speechBubble.querySelector('.bubble-text');
 
   const catQuotes = [
-    '"Nih bunga spesial buat lu, bro! Lu udah berjuang hebat hari ini!" 🌸',
-    '"Capek itu wajar, bro. Yang penting lu gak pernah nyerah! Respect!" 👊',
-    '"Jangan lupa istirahat yang cukup ya! Lu berharga banget buat kita!" ☕',
-    '"Otsukaresama deshita! Dunia lebih seru karena ada sahabat kayak lu!" ✨',
-    '"Lu lebih kuat dari apa pun yang lagi lu hadapi sekarang, percaya deh!" 💪',
-    '"Senyum dulu bro, nih bunga wangi khusus didatengin buat lu!" 🌼',
-    '"Bangga banget punya sahabat se-keren lu! Semangat terus, bro!" 🚀'
+    '"Nih bunga sakura, next time kamu liat sendiri di Jepang ya" 🌸',
+    '"Ganbatte ne!" 👊',
+    '"Jangan lupa istirahat yang Gil chan" ☕',
+    '"Otsukaresama deshita! Bumi lebih seru karena ada kamu gil chan" ✨',
+    '"Kimi wa tsuyoiiii" 💪',
+    '"Ini bunga juga, jangan kamu taruh kulkas ya" 🌼',
+    '"Ayo wujudkan anata no yumei!" 🚀'
   ];
 
   let quoteIdx = 0;
@@ -440,47 +440,64 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================================
-  // 5. TOS SEMANGAT (BRO FIST COUNTER)
+  // 5. TOS SEMANGAT (BRO FIST COUNTER) & RESET
   // =========================================================================
   const fistBtn = document.getElementById('cheer-fist-btn');
   const fistCountBadge = document.getElementById('fist-count');
+  const resetFistBtn = document.getElementById('reset-fist-btn');
   let fistCount = 0;
 
-  // Restore saved fist bumps from localStorage
+  // Reset hitungan tos ke 0 sesuai permintaan
   try {
-    const saved = localStorage.getItem('kizuna_fist_count');
-    if (saved) {
-      fistCount = parseInt(saved, 10) || 0;
+    localStorage.removeItem('kizuna_fist_count');
+    localStorage.setItem('kizuna_fist_count', '0');
+  } catch (e) { }
+  if (fistCountBadge) {
+    fistCountBadge.textContent = '0';
+  }
+
+  if (fistBtn) {
+    fistBtn.addEventListener('click', (e) => {
+      playPopSound();
+      fistCount++;
       fistCountBadge.textContent = fistCount;
-    }
-  } catch (e) {}
+      try {
+        localStorage.setItem('kizuna_fist_count', fistCount.toString());
+      } catch (e) { }
 
-  fistBtn.addEventListener('click', (e) => {
-    playPopSound();
-    fistCount++;
-    fistCountBadge.textContent = fistCount;
-    try {
-      localStorage.setItem('kizuna_fist_count', fistCount.toString());
-    } catch (e) {}
+      // Bounce button
+      fistBtn.style.transform = 'scale(0.92)';
+      setTimeout(() => {
+        fistBtn.style.transform = '';
+      }, 150);
 
-    // Bounce button
-    fistBtn.style.transform = 'scale(0.92)';
-    setTimeout(() => {
-      fistBtn.style.transform = '';
-    }, 150);
+      // Mini confetti near button
+      const rect = fistBtn.getBoundingClientRect();
+      launchConfetti(rect.left + rect.width / 2, rect.top, 16);
 
-    // Mini confetti near button
-    const rect = fistBtn.getBoundingClientRect();
-    launchConfetti(rect.left + rect.width / 2, rect.top, 16);
+      const cheeringTexts = [
+        '👊 Tos bro! Solid selamanya!',
+        '🔥 Energi bertambah! Semangat terus!',
+        '🤝 Sahabat sejati pantang mundur!',
+        '✨ Bro power +100!'
+      ];
+      showToast(cheeringTexts[Math.floor(Math.random() * cheeringTexts.length)]);
+    });
+  }
 
-    const cheeringTexts = [
-      '👊 Tos bro! Solid selamanya!',
-      '🔥 Energi bertambah! Semangat terus!',
-      '🤝 Sahabat sejati pantang mundur!',
-      '✨ Bro power +100!'
-    ];
-    showToast(cheeringTexts[Math.floor(Math.random() * cheeringTexts.length)]);
-  });
+  // Tombol Reset Hitungan Tos
+  if (resetFistBtn) {
+    resetFistBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      playPopSound();
+      fistCount = 0;
+      fistCountBadge.textContent = '0';
+      try {
+        localStorage.setItem('kizuna_fist_count', '0');
+      } catch (e) { }
+      showToast('Hitungan tos di-reset ke 0! Ayo mulai lagi gil chan 👊');
+    });
+  }
 
   // =========================================================================
   // 6. OMIKUJI BOOSTER CARDS (3D Flip)
@@ -509,4 +526,231 @@ document.addEventListener('DOMContentLoaded', () => {
       toast.classList.remove('show');
     }, 2800);
   }
+
+  // =========================================================================
+  // 8. FITUR FOTO 3 ICON (NIPPON, MIE GACOAN, MENG-MENG)
+  // =========================================================================
+  const galleryModal = document.getElementById('gallery-modal');
+  const galleryClose = document.getElementById('gallery-close');
+  const galleryDismiss = document.getElementById('gallery-dismiss-btn');
+  const galleryBadge = document.getElementById('gallery-badge');
+  const galleryTitle = document.getElementById('gallery-title');
+  const gallerySubtitle = document.getElementById('gallery-subtitle');
+  const galleryMainImg = document.getElementById('gallery-main-img');
+  const galleryCaption = document.getElementById('gallery-caption');
+  const galleryPrev = document.getElementById('gallery-prev');
+  const galleryNext = document.getElementById('gallery-next');
+  const galleryThumbs = document.getElementById('gallery-thumbs');
+  const galleryCounter = document.getElementById('gallery-counter');
+
+  const photoFeatures = {
+    nippon: {
+      badgeText: '🗾 NIPPON • JEPANG',
+      badgeClass: 'badge-nippon',
+      title: 'Ayo Kita ke Jepang Gil Chaaan!',
+      subtitle: 'Ayo kita ke jepang gil chaaan, いっしょにがんばろう 🇯🇵',
+      photos: [
+        {
+          src: './Jepang 1.jpg',
+          caption: 'Tangga Sakura Kimi no Na wa 🌸 (Jepang 1) — Pemandangan musim semi anime yang nyata!'
+        },
+        {
+          src: './Jepang 2.jpg',
+          caption: 'Gunung Fuji dari Fujinomiya 🗻 (Jepang 2) — Langit biru secerah masa depan kita!'
+        },
+        {
+          src: './Jepang 3.jpg',
+          caption: 'Jalanan Malam Tokyo / Shinjuku 🏮 (Jepang 3) — Suasana neon kota impian!'
+        }
+      ]
+    },
+    gacoan: {
+      badgeText: '🍝 MIE GACOAN',
+      badgeClass: 'badge-gacoan',
+      title: 'Ayo Kita Makan Mie Gacoan Gil Chan!',
+      subtitle: 'Ayo kita makan mie gacoan gil chan! Level berapa nih? 🔥',
+      photos: [
+        {
+          src: './gacoan 1.jpg',
+          caption: 'Outlet Mie Gacoan 🏠 (Gacoan 1) — Markas makan pedas favorit kita!'
+        },
+        {
+          src: './gacoan 2.jpg',
+          caption: 'Pesta Mie & Dimsum Mewah 🍜🥟 (Gacoan 2) — Lengkap sama es segar manis!'
+        },
+        {
+          src: './gacoan 3.jpg',
+          caption: 'Mie Pedas & Pangsit Renyah 🌶️ (Gacoan 3) — Menggoda banget, ayo berangkat!'
+        }
+      ]
+    },
+    meng: {
+      badgeText: '🐈 MENG-MENG',
+      badgeClass: 'badge-meng',
+      title: 'Mengenang Meng-meng 😔',
+      subtitle: 'Mengenang meng-meng😔 — Meng-meng tersayang yang selalu ada di hati kita 🤍',
+      photos: [
+        {
+          src: './Meng meng sad.jpeg',
+          caption: 'Meng-meng muka judes tapi imut 😔🤍 — Rest in love, meng-meng kesayangan kita berdua!'
+        }
+      ]
+    }
+  };
+
+  let activeFeatureKey = null;
+  let activePhotoIndex = 0;
+
+  function renderGalleryPhoto(index) {
+    if (!activeFeatureKey) return;
+    const currentFeature = photoFeatures[activeFeatureKey];
+    if (!currentFeature || !currentFeature.photos.length) return;
+
+    activePhotoIndex = (index + currentFeature.photos.length) % currentFeature.photos.length;
+    const currentPhoto = currentFeature.photos[activePhotoIndex];
+
+    // Animasi transisi foto
+    galleryMainImg.style.opacity = '0.2';
+    galleryMainImg.style.transform = 'scale(0.97)';
+    galleryMainImg.src = currentPhoto.src;
+    galleryMainImg.alt = currentPhoto.caption;
+
+    galleryMainImg.onload = () => {
+      galleryMainImg.style.opacity = '1';
+      galleryMainImg.style.transform = 'scale(1)';
+    };
+
+    galleryCaption.textContent = currentPhoto.caption;
+
+    if (currentFeature.photos.length > 1) {
+      galleryCounter.textContent = `${activePhotoIndex + 1} / ${currentFeature.photos.length}`;
+      galleryPrev.classList.remove('hidden');
+      galleryNext.classList.remove('hidden');
+    } else {
+      galleryCounter.textContent = '1 Foto Kenangan';
+      galleryPrev.classList.add('hidden');
+      galleryNext.classList.add('hidden');
+    }
+
+    // Update active thumbnail
+    const thumbElements = galleryThumbs.querySelectorAll('.gallery-thumb');
+    thumbElements.forEach((el, i) => {
+      el.classList.toggle('active', i === activePhotoIndex);
+    });
+  }
+
+  function openGalleryModal(featureKey) {
+    const feature = photoFeatures[featureKey];
+    if (!feature) return;
+
+    initAudioContext();
+    playPopSound();
+
+    activeFeatureKey = featureKey;
+    activePhotoIndex = 0;
+
+    // Header info
+    galleryBadge.textContent = feature.badgeText;
+    galleryBadge.className = `gallery-badge ${feature.badgeClass}`;
+    galleryTitle.textContent = feature.title;
+    gallerySubtitle.textContent = feature.subtitle;
+
+    // Render thumbnails
+    galleryThumbs.innerHTML = '';
+    if (feature.photos.length > 1) {
+      feature.photos.forEach((photo, idx) => {
+        const thumb = document.createElement('div');
+        thumb.className = `gallery-thumb ${idx === 0 ? 'active' : ''}`;
+        thumb.title = `Foto ${idx + 1}`;
+        thumb.innerHTML = `<img src="${photo.src}" alt="Thumb ${idx + 1}">`;
+        thumb.addEventListener('click', () => {
+          playPopSound();
+          renderGalleryPhoto(idx);
+        });
+        galleryThumbs.appendChild(thumb);
+      });
+      galleryThumbs.style.display = 'flex';
+    } else {
+      galleryThumbs.style.display = 'none';
+    }
+
+    // Render first photo
+    renderGalleryPhoto(0);
+
+    // Buka modal
+    galleryModal.classList.add('active');
+    galleryModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    // Efek partikel halus
+    launchConfetti(window.innerWidth / 2, window.innerHeight * 0.45, 30);
+  }
+
+  function closeGalleryModal() {
+    if (!galleryModal) return;
+    galleryModal.classList.remove('active');
+    galleryModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  // Event listener tombol close galeri
+  if (galleryClose) galleryClose.addEventListener('click', closeGalleryModal);
+  if (galleryDismiss) galleryDismiss.addEventListener('click', closeGalleryModal);
+
+  if (galleryModal) {
+    galleryModal.addEventListener('click', (e) => {
+      if (e.target === galleryModal) {
+        closeGalleryModal();
+      }
+    });
+  }
+
+  // Tombol navigasi foto
+  if (galleryPrev) {
+    galleryPrev.addEventListener('click', () => {
+      playPopSound();
+      renderGalleryPhoto(activePhotoIndex - 1);
+    });
+  }
+
+  if (galleryNext) {
+    galleryNext.addEventListener('click', () => {
+      playPopSound();
+      renderGalleryPhoto(activePhotoIndex + 1);
+    });
+  }
+
+  // Pasang click listener pada 3 icon badge (Mie Gacoan, Meng-meng, Nippon)
+  const clickableBadges = document.querySelectorAll('.clickable-badge');
+  clickableBadges.forEach(badge => {
+    badge.addEventListener('click', () => {
+      const feat = badge.dataset.feature;
+      if (feat) {
+        openGalleryModal(feat);
+      }
+    });
+
+    badge.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const feat = badge.dataset.feature;
+        if (feat) {
+          openGalleryModal(feat);
+        }
+      }
+    });
+  });
+
+  // Navigasi keyboard saat modal terbuka
+  document.addEventListener('keydown', (e) => {
+    if (galleryModal && galleryModal.classList.contains('active')) {
+      if (e.key === 'Escape') {
+        closeGalleryModal();
+      } else if (e.key === 'ArrowLeft') {
+        renderGalleryPhoto(activePhotoIndex - 1);
+      } else if (e.key === 'ArrowRight') {
+        renderGalleryPhoto(activePhotoIndex + 1);
+      }
+    }
+  });
 });

@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>おつかれさまでした • Terima Kasih Sahabat!</title>
-  <meta name="description" content="Website ucapan terima kasih dan apresiasi untuk sahabat terbaik. おつかれさまでした (Otsukaresama deshita) — terima kasih sudah menjadi kuat!">
-  <meta name="keywords" content="sahabat, otsukaresama deshita, arigatou gozaimasu, terima kasih, ucapan sahabat, brotherhood">
-  <meta name="author" content="Sahabat Terbaik">
+  <title>おつかれさまでした • From Fiani</title>
+  <meta name="description" content="Website from fiani untuk gil chan. おつかれさまでした, terima kasih sudah menjadi tsuyoi!">
+  <meta name="keywords" content="otsukareeee">
+  <meta name="author" content="Tsuyoiiiii">
 
   <!-- Open Graph / Meta -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="おつかれさまでした • Terima Kasih Sahabat!">
-  <meta property="og:description" content="Terima kasih sudah selalu berjuang dan menjadi kuat, bro. ありがとうございます!">
+  <meta property="og:title" content="おつかれさまでした">
+  <meta property="og:description" content="ありがとうございます!">
   <meta property="og:image" content="./sky.jpg">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💐</text></svg>">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💐</text></svg>">
 
   <!-- Google Fonts: Plus Jakarta Sans & Zen Maru Gothic & Noto Sans JP -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Zen+Maru+Gothic:wght@500;700;900&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
   <!-- Ambient Sky Particles Canvas -->
   <canvas id="sky-canvas"></canvas>
@@ -33,12 +38,13 @@
     <div class="header-container">
       <div class="brand-badge">
         <span class="badge-icon">絆</span>
-        <span class="badge-text">KIZUNA • BROTHERHOOD</span>
+        <span class="badge-text">FROM : FIANI SEKAI NI ICHIBAN KAWAII</span>
       </div>
 
       <div class="header-actions">
         <!-- Ambient Lo-fi Audio Toggle -->
-        <button id="audio-toggle-btn" class="ctrl-btn" title="Nyalakan / Matikan Musik Lofi Pengiring" aria-label="Toggle Sound">
+        <button id="audio-toggle-btn" class="ctrl-btn" title="Nyalakan / Matikan Musik Lofi Pengiring"
+          aria-label="Toggle Sound">
           <span class="ctrl-icon" id="audio-icon">🎵</span>
           <span class="ctrl-text" id="audio-text">Suara: Off</span>
           <span class="audio-waves" id="audio-waves">
@@ -50,7 +56,7 @@
 
         <!-- Quick Surprise Trigger in Nav -->
         <button id="nav-surprise-btn" class="nav-cta-btn">
-          <span>🎁 Buka Kejutan</span>
+          <span>🎁 プレゼント</span>
         </button>
       </div>
     </div>
@@ -62,7 +68,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
       <div class="hero-bg-overlay"></div>
-      
+
       <div class="hero-grid">
         <!-- Hero Text Column -->
         <div class="hero-content">
@@ -70,55 +76,52 @@
             <span class="tag-dot"></span>
             <span class="tag-jp">特別な親友へ</span>
             <span class="tag-divider">|</span>
-            <span class="tag-id">Untuk Sahabat Tangguh</span>
+            <span class="tag-id">Untuk Gil chan</span>
           </div>
 
           <h1 class="hero-title">
             <span class="jp-heading">おつかれさまでした</span>
-            <span class="main-subheading">Terima Kasih Sudah Menjadi Kuat, Bro!</span>
+            <span class="main-subheading">Arigato sudah menjadi gil chan yang tsuyoi!</span>
           </h1>
 
           <p class="hero-description">
-            Hidup mungkin nggak selalu mudah dan banyak hal yang menguras energimu. Tapi lu tetap berdiri tegak, bertahan, dan melangkah sejauh ini. Bangga banget punya sahabat sekuat lu.
+            わたしたち、ちょっとにてるね？だから, aku bikin ini karena kita sama-sama tsuyoi, sekai ni ichiban tsuyoiii!!!
           </p>
 
           <!-- Interactive CTAs -->
           <div class="hero-cta-group">
-            <button id="hero-surprise-btn" class="primary-spark-btn" id="btn-surprise-main">
-              <span class="btn-flare"></span>
-              <span class="btn-icon">✨</span>
-              <span class="btn-label">Buka Kejutan Sahabat</span>
-              <span class="btn-subtext">Tap untuk membuka rasa terima kasih</span>
-            </button>
-
             <button id="cheer-fist-btn" class="secondary-glass-btn">
               <span class="btn-icon">👊</span>
-              <span class="btn-label">Kirim Tos Semangat</span>
+              <span class="btn-label">Ayo kita tos sebanyak-banyaknya gil chan</span>
               <span class="fist-counter-badge" id="fist-count">0</span>
+            </button>
+            <button id="reset-fist-btn" class="fist-reset-btn" title="Reset hitungan tos ke 0">
+              <span class="reset-icon">↺</span>
+              <span class="reset-text">Reset 0</span>
             </button>
           </div>
 
-          <!-- Quick Stats / Highlights -->
+          <!-- Quick Stats / Highlights (Clickable Photo Features) -->
           <div class="bro-badges">
-            <div class="badge-item">
-              <span class="badge-symbol">💪</span>
+            <div class="badge-item clickable-badge" id="badge-gacoan" data-feature="gacoan" role="button" tabindex="0" title="Klik untuk lihat foto Mie Gacoan!">
+              <span class="badge-symbol">🍝</span>
               <div class="badge-desc">
-                <strong>100% Tangguh</strong>
-                <span>Pantang Menyerah</span>
+                <strong>Mie Gacoan <span class="badge-cam-icon">📸</span></strong>
+                <span>Ayo kita makan mie gacoan gil chan!</span>
               </div>
             </div>
-            <div class="badge-item">
-              <span class="badge-symbol">🤝</span>
+            <div class="badge-item clickable-badge" id="badge-meng" data-feature="meng" role="button" tabindex="0" title="Klik untuk lihat foto Meng-meng!">
+              <span class="badge-symbol">🐈</span>
               <div class="badge-desc">
-                <strong>Sahabat Sejati</strong>
-                <span>Solid Selalu</span>
+                <strong>Meng-meng <span class="badge-cam-icon">📸</span></strong>
+                <span>Mengenang meng-meng😔</span>
               </div>
             </div>
-            <div class="badge-item">
-              <span class="badge-symbol">☕</span>
+            <div class="badge-item clickable-badge" id="badge-nippon" data-feature="nippon" role="button" tabindex="0" title="Klik untuk lihat foto Jepang!">
+              <span class="badge-symbol">🗾</span>
               <div class="badge-desc">
-                <strong>Waktunya Rehat</strong>
-                <span>Ambil Napas Dulu</span>
+                <strong>Nippon <span class="badge-cam-icon">📸</span></strong>
+                <span>Ayo kita ke jepang gil chaaan, いっしょにがんばろう</span>
               </div>
             </div>
           </div>
@@ -128,10 +131,10 @@
         <div class="hero-mascot-card">
           <div class="mascot-frame">
             <div class="mascot-glow"></div>
-            
+
             <!-- Speech Bubble from Cat -->
             <div class="speech-bubble" id="cat-speech">
-              <span class="bubble-text">"Nih bunga spesial buat lu, bro! Lu udah berjuang hebat hari ini!" 🌸</span>
+              <span class="bubble-text">"Noh bunga tapi jangan kamu tanam, gil chan" 🌸</span>
               <span class="bubble-tip"></span>
             </div>
 
@@ -139,14 +142,14 @@
             <div class="mascot-img-wrapper" id="mascot-interact-zone" title="Klik si kucing buat disemangatin!">
               <img src="./cat flower.jpg" alt="Kucing memegang buket bunga" class="cat-flower-img" id="cat-flower-img">
               <div class="click-hint">
-                <span>👆 Klik si Kucing</span>
+                <span>👆 Klik si meng-meng</span>
               </div>
             </div>
 
             <!-- Mascot Footer Details -->
             <div class="mascot-meta">
-              <span class="mascot-name">Kucing Pembawa Bunga 🐾</span>
-              <p class="mascot-motto">“Kadang yang kita butuhin cuma jeda dan seseorang yang bilang: lu keren!”</p>
+              <span class="mascot-name">Meng-meng pemberi semangat 🐾</span>
+              <p class="mascot-motto">“Ini peliharaan kita gil chan, jangan kamu jual ya”</p>
             </div>
           </div>
         </div>
@@ -156,9 +159,9 @@
     <!-- Section: Kapsul Semangat / Omikuji Cards -->
     <section class="capsules-section" id="capsules">
       <div class="section-header">
-        <span class="section-tag">おみくじ • OMIKUJI SEMANGAT</span>
-        <h2 class="section-title">Kapsul Pengingat Hari Ini</h2>
-        <p class="section-subtitle">Pilih dan buka kartu di bawah ini saat kamu butuh suntikan energi dan motivasi ekstra.</p>
+        <span class="section-tag">Kartu</span>
+        <h2 class="section-title">Ini bukan kartu atm ku ya gil chan</h2>
+        <p class="section-subtitle">Pilih kartu sesuai mood kamu きょうは gil chan</p>
       </div>
 
       <div class="cards-grid">
@@ -166,17 +169,19 @@
         <div class="booster-card" data-card="1">
           <div class="card-inner">
             <div class="card-front">
-              <div class="card-top-icon">🛡️</div>
-              <span class="card-kanji">強 さ</span>
-              <h3 class="card-name">Ketangguhan</h3>
-              <p class="card-hint">Klik untuk membaca pesan</p>
+              <div class="card-top-icon">😡</div>
+              <span class="card-kanji">おこってる</span>
+              <h3 class="card-name">Marah</h3>
+              <p class="card-hint">No no marah marah</p>
               <span class="card-action-cue">Buka Kartu ➔</span>
             </div>
             <div class="card-back">
-              <span class="back-kanji-stamp">強い心</span>
-              <h4>Kamu Lebih Kuat Dari Masalahmu</h4>
-              <p>Mungkin hari ini berat, tapi ingat sudah berapa banyak badai yang berhasil lu lewati sebelumnya. Lu punya mental juara, bro!</p>
-              <div class="card-footer-quote">「君なら乗り越えられる」</div>
+              <span class="back-kanji-stamp">🥛Minum dulu</span>
+              <h4>Siapa yang bikin kamu marah gil chan? Ayo kita gebukin</h4>
+              <p>Boleh marah tapi jangan lama-lama gil chan, biar ga cepat tua kan kamu masih embrio. Apapun
+                yang terjadi hari ini, tetaplah menjadi gil chan yang aku kenal. Maafkan yang masih bisa dimaafkan dan
+                lupakan yang tidak bisa dimaafkan, oke?</p>
+              <div class="card-footer-quote">「もうおこらないでね？」</div>
             </div>
           </div>
         </div>
@@ -185,17 +190,18 @@
         <div class="booster-card" data-card="2">
           <div class="card-inner">
             <div class="card-front">
-              <div class="card-top-icon">☕</div>
-              <span class="card-kanji">休 息</span>
-              <h3 class="card-name">Izin Istirahat</h3>
-              <p class="card-hint">Klik untuk membaca pesan</p>
+              <div class="card-top-icon">😢</div>
+              <span class="card-kanji">かなしい</span>
+              <h3 class="card-name">Sedih</h3>
+              <p class="card-hint">No no sedih sedih</p>
               <span class="card-action-cue">Buka Kartu ➔</span>
             </div>
             <div class="card-back">
-              <span class="back-kanji-stamp">休もう</span>
-              <h4>Istirahat Bukan Berarti Menyerah</h4>
-              <p>Mesin tercanggih pun butuh waktu dingin. Tarik napas panjang, minum kopi atau tidur nyenyak malam ini. Kesehatan lu nomor satu.</p>
-              <div class="card-footer-quote">「無理しないでね」</div>
+              <span class="back-kanji-stamp">🍗Makan ayam dulu</span>
+              <h4>Sedih kenawhy kamu gil chan?</h4>
+              <p>Jangan nangis gil chan, aku ga bisa berenang kalau banjir. でも、だいじょうぶ, kalau kamu bisa melewati hari
+                ini, itu sudah yang terbaik! Jangan lupa makan, minum, dan mandi biar tidak bau ya kamu gil chan</p>
+              <div class="card-footer-quote">「もうかなしまないで」</div>
             </div>
           </div>
         </div>
@@ -204,17 +210,17 @@
         <div class="booster-card" data-card="3">
           <div class="card-inner">
             <div class="card-front">
-              <div class="card-top-icon">🤝</div>
-              <span class="card-kanji">親 友</span>
-              <h3 class="card-name">Ada Sahabat</h3>
-              <p class="card-hint">Klik untuk membaca pesan</p>
+              <div class="card-top-icon">🥰</div>
+              <span class="card-kanji">うれしい</span>
+              <h3 class="card-name">Senang</h3>
+              <p class="card-hint">Yokatta nee</p>
               <span class="card-action-cue">Buka Kartu ➔</span>
             </div>
             <div class="card-back">
-              <span class="back-kanji-stamp">絆</span>
-              <h4>Gak Perlu Nanggung Sendiri</h4>
-              <p>Kalau capek atau butuh teman ngobrol, pintu gue selalu terbuka. Mau cerita hal konyol atau curhat serius, gue siap dengerin.</p>
-              <div class="card-footer-quote">「いつでも味方だよ」</div>
+              <span class="back-kanji-stamp">🌻Nih bunga sun</span>
+              <h4>あなたがうれしいと、わたしもうれしい</h4>
+              <p>Wah hari ini kamu lagi senang kah? Yokatta nee, tetaplah menjadi gil chan yang selalu ureshi.!</p>
+              <div class="card-footer-quote">「ずっとしあわせでいてね！」</div>
             </div>
           </div>
         </div>
@@ -223,17 +229,18 @@
         <div class="booster-card" data-card="4">
           <div class="card-inner">
             <div class="card-front">
-              <div class="card-top-icon">🚀</div>
-              <span class="card-kanji">未 来</span>
-              <h3 class="card-name">Langkah Maju</h3>
-              <p class="card-hint">Klik untuk membaca pesan</p>
+              <div class="card-top-icon">😔</div>
+              <span class="card-kanji">がっかり</span>
+              <h3 class="card-name">Kecewa</h3>
+              <p class="card-hint">Hee Kenawhy?</p>
               <span class="card-action-cue">Buka Kartu ➔</span>
             </div>
             <div class="card-back">
-              <span class="back-kanji-stamp">前進</span>
-              <h4>Satu Langkah Kecil Setiap Hari</h4>
-              <p>Nggak perlu terburu-buru. Kemajuan sekecil apa pun tetaplah kemajuan. Nikmati perjalanannya, tujuan lu udah semakin dekat!</p>
-              <div class="card-footer-quote">「一歩一歩、確実に」</div>
+              <span class="back-kanji-stamp">🍫Nih makan</span>
+              <h4>Siapa yang bikin kamu kecewa gil chan?</h4>
+              <p>Jangan kasih ekspetasimu lagi ke mereka ya. Daripada berekspetasi, mending kita berimajinasi seperti
+                cerita di HT di mana kita naik pohon ke jawa dan kamu menjadi herooooo, kakkoii!</p>
+              <div class="card-footer-quote">「あなたはつよい！」</div>
             </div>
           </div>
         </div>
@@ -244,42 +251,39 @@
     <section class="letter-section">
       <div class="letter-box">
         <div class="letter-header">
-          <div class="letter-stamp">
-            <span class="stamp-border"></span>
-            <span class="stamp-char">感謝</span>
-            <span class="stamp-sub">GRATITUDE</span>
-          </div>
           <div class="letter-title-wrap">
-            <span class="letter-to">To: Sahabat Perjuangan 👊</span>
-            <h2 class="letter-title">Catatan Kecil Untuk Sahabatku</h2>
+            <span class="letter-to">To: Gil chan🐈</span>
+            <h2 class="letter-title">Ini namanya kata-kata dari fiani yang bijak ya</h2>
           </div>
         </div>
 
         <div class="letter-body">
-          <p>Bro,</p>
+          <p>Gil chan,</p>
           <p>
-            Mungkin kita jarang ngomong yang puitis atau bertele-tele, karena sebagai cowok kita biasanya cuma santai ketawa bareng. Tapi lewat web ini, gue pengen ngomong serius dan tulus:
+            Mungkin kita jarang ngomong yang puitis dan dewasa karena kamu masih embrio. Tapi, aku ingin menyampaikan :
           </p>
           <div class="quote-callout">
             <p>
               <strong>"おつかれさまでした (Otsukaresama deshita)."</strong><br>
-              Terima kasih banyak sudah bertahan, tetap melangkah, dan tidak menyerah meski beban di pundakmu seringkali berat. Lu hebat banget bro.
+              Terima kasih banyak sudah sampai di titik ini gil chan, ayo kita sama-sama menjadi tsuyoi. Aku bersyukur
+              kita kenal gil chan, ada hal yang aku pelajari dari kamu yang tidak pernah aku katakan. Tapi,
+              intinya aku sangat menikmati obrolan random kita di malam hariku.
             </p>
           </div>
           <p>
-            Kadang dunia menuntut kita untuk selalu kuat tanpa nanya apakah kita lagi capek atau nggak. Hari ini, izinkan diri lu buat bangga sama perjuangan lu sendiri. Apapun mimpi yang lagi lu kejar, gue bakal selalu dukung lu dari garis depan sampai garis akhir.
+            <strong>Ada beberapa umur lagi yang harus kamu capai gil chan, aku ingin di setiap umur itu kamu tidak
+              pernah lupa
+              mimpimu, mimpi ketika aku nanya 'kalau udah gede mau jadi apa?', dan apapun lingkungan yang kamu tempati
+              nantinya, semoga kamu selalu dikelilingi orang-orang baik seperti aku yang sangat baik ini.</strong><br>
           </p>
         </div>
 
         <div class="letter-footer">
           <div class="signature">
-            <span class="sign-note">Sahabat lu selalu,</span>
-            <span class="sign-name">Best Friend for Life 🌟</span>
+            <span class="sign-note">Pelukan hangat dari Fiani Bijak</span>
+            <span class="sign-name">Nice to meet you, Gil chan🫂</span>
           </div>
 
-          <button id="letter-surprise-btn" class="action-highlight-btn">
-            <span>🎁 Hadiah Spesial Dari Hati</span>
-          </button>
         </div>
       </div>
     </section>
@@ -289,9 +293,9 @@
       <div class="sky-card-container">
         <div class="sky-card-img" style="background-image: url('./sky.jpg');">
           <div class="sky-glass-banner">
-            <span class="sky-tag">青空のように高く • Seperti Langit Biru</span>
-            <h3>"Langit cerah selalu menanti setelah badai yang paling gelap berlalu."</h3>
-            <p>Teruslah melangkah dengan kepala tegak!</p>
+            <span class="sky-tag">青空のように高く</span>
+            <h3>Langit Biru</h3>
+            <p>Ini langit biru buat kamu gil chan</p>
           </div>
         </div>
       </div>
@@ -303,10 +307,10 @@
   <div class="modal-backdrop" id="surprise-modal" aria-hidden="true">
     <div class="modal-card">
       <button class="modal-close-btn" id="modal-close" aria-label="Tutup Kejutan">✕</button>
-      
+
       <!-- Modal Inner Animation Content -->
       <div class="modal-badge">
-        <span>🎉 SURPRISE APPRECIATION 🎉</span>
+        <span>🎉 Tadaaaaa 🎉</span>
       </div>
 
       <div class="modal-highlight-jp">
@@ -320,18 +324,19 @@
       </div>
 
       <div class="modal-message">
-        <p class="modal-headline">"Terima kasih sudah menjadi sahabat paling keren dan bisa diandalkan!"</p>
+        <p class="modal-headline">"From Fiani Sekai Ni Ichiban Yasashii</p>
         <p class="modal-text">
-          Terima kasih atas segala tawa, waktu, cerita, dan dukungan yang udah lu kasih selama ini. Terima kasih udah jadi sosok yang tangguh, setia kawan, dan pantang menyerah. Dunia beruntung punya orang sehebat lu, bro!
+          Terima kasih atas segala tawa, waktu, cerita, dan dukungan yang udah lu kasih selama ini. Terima kasih udah
+          jadi sosok yang tangguh, setia kawan, dan pantang menyerah. Dunia beruntung punya orang sehebat lu, bro!
         </p>
       </div>
 
       <div class="modal-reaction-tray">
-        <span class="reaction-label">Reaksi Bro:</span>
+        <span class="reaction-label">Reaction</span>
         <div class="reaction-btns">
-          <button class="react-btn" data-reaction="👊" title="Bro Fist">👊 Tos Bro</button>
-          <button class="react-btn" data-reaction="🔥" title="Membara">🔥 Membara!</button>
-          <button class="react-btn" data-reaction="🍻" title="Nongkrong">🍻 Gass Nongkrong</button>
+          <button class="react-btn" data-reaction="👊" title="Bro Fist">👊 Tos!</button>
+          <button class="react-btn" data-reaction="🔥" title="Membara">🔥 Menyalaaa</button>
+          <button class="react-btn" data-reaction="💫" title="Nongkrong">💫 Kakkoii</button>
           <button class="react-btn" data-reaction="❤️" title="Terharu">❤️ Respect</button>
         </div>
         <div class="reaction-toast" id="reaction-toast"></div>
@@ -339,11 +344,46 @@
 
       <div class="modal-actions">
         <button id="modal-confetti-btn" class="modal-firework-btn">
-          <span>🎊 Tembak Kembang Api Lagi!</span>
+          <span>Arigato Fiani Yasashii</span>
         </button>
         <button id="modal-dismiss-btn" class="modal-secondary-btn">
           <span>Tutup</span>
         </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Galeri Foto (Nippon, Mie Gacoan, Meng-meng) -->
+  <div class="modal-backdrop gallery-modal-backdrop" id="gallery-modal" aria-hidden="true">
+    <div class="modal-card gallery-modal-card">
+      <button class="modal-close-btn" id="gallery-close" aria-label="Tutup Galeri">✕</button>
+
+      <!-- Header Galeri -->
+      <div class="gallery-header">
+        <span class="gallery-badge" id="gallery-badge">🍝 MIE GACOAN</span>
+        <h2 class="gallery-title" id="gallery-title">Ayo Makan Mie Gacoan!</h2>
+        <p class="gallery-subtitle" id="gallery-subtitle">Misi kuliner bareng Gil chan</p>
+      </div>
+
+      <!-- Main Photo Display Area -->
+      <div class="gallery-viewer">
+        <button class="gallery-nav-btn prev" id="gallery-prev" aria-label="Foto Sebelumnya" title="Foto Sebelumnya">❮</button>
+
+        <div class="gallery-img-wrapper">
+          <img src="" alt="" class="gallery-main-img" id="gallery-main-img">
+          <div class="gallery-caption" id="gallery-caption"></div>
+        </div>
+
+        <button class="gallery-nav-btn next" id="gallery-next" aria-label="Foto Selanjutnya" title="Foto Selanjutnya">❯</button>
+      </div>
+
+      <!-- Thumbnails selector -->
+      <div class="gallery-thumbs" id="gallery-thumbs"></div>
+
+      <!-- Footer & Counter -->
+      <div class="gallery-footer">
+        <span class="gallery-counter" id="gallery-counter">1 / 3</span>
+        <button id="gallery-dismiss-btn" class="modal-secondary-btn">Tutup</button>
       </div>
     </div>
   </div>
@@ -354,8 +394,8 @@
   <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-content">
-      <div class="footer-jp">心から感謝を込めて • Terima Kasih dari Hati</div>
-      <p class="footer-copy">Dibuat khusus untuk sahabat tercinta • Siap di-hosting di Vercel</p>
+      <div class="footer-jp">おつかれさまでした!</div>
+      <p class="footer-copy">Sekian, dari Fiani sekai ni ichiban kawaii, yasashii, kakkoii</p>
       <div class="footer-links">
         <a href="#top" class="back-to-top">Kembali ke Atas ⬆</a>
       </div>
@@ -364,4 +404,5 @@
 
   <script src="./script.js"></script>
 </body>
+
 </html>
