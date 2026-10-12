@@ -548,19 +548,19 @@ document.addEventListener('DOMContentLoaded', () => {
       badgeText: '🗾 NIPPON • JEPANG',
       badgeClass: 'badge-nippon',
       title: 'Ayo Kita ke Jepang Gil Chaaan!',
-      subtitle: 'Ayo kita ke jepang gil chaaan, いっしょにがんばろう 🇯🇵',
+      subtitle: 'Ayo kita ke jepang gil chaaan, いっしょにがんばろう',
       photos: [
         {
           src: './Jepang 1.jpg',
-          caption: 'Tangga Sakura Kimi no Na wa 🌸 (Jepang 1) — Pemandangan musim semi anime yang nyata!'
+          caption: 'Kireii'
         },
         {
           src: './Jepang 2.jpg',
-          caption: 'Gunung Fuji dari Fujinomiya 🗻 (Jepang 2) — Langit biru secerah masa depan kita!'
+          caption: 'Ini juga kireii'
         },
         {
           src: './Jepang 3.jpg',
-          caption: 'Jalanan Malam Tokyo / Shinjuku 🏮 (Jepang 3) — Suasana neon kota impian!'
+          caption: 'Sugoiii!'
         }
       ]
     },
@@ -568,19 +568,19 @@ document.addEventListener('DOMContentLoaded', () => {
       badgeText: '🍝 MIE GACOAN',
       badgeClass: 'badge-gacoan',
       title: 'Ayo Kita Makan Mie Gacoan Gil Chan!',
-      subtitle: 'Ayo kita makan mie gacoan gil chan! Level berapa nih? 🔥',
+      subtitle: 'Kita harus pindahin gacoan ke jepang',
       photos: [
         {
           src: './gacoan 1.jpg',
-          caption: 'Outlet Mie Gacoan 🏠 (Gacoan 1) — Markas makan pedas favorit kita!'
+          caption: 'Ikuzooo'
         },
         {
           src: './gacoan 2.jpg',
-          caption: 'Pesta Mie & Dimsum Mewah 🍜🥟 (Gacoan 2) — Lengkap sama es segar manis!'
+          caption: 'Oishii'
         },
         {
           src: './gacoan 3.jpg',
-          caption: 'Mie Pedas & Pangsit Renyah 🌶️ (Gacoan 3) — Menggoda banget, ayo berangkat!'
+          caption: 'Kamu harus yang level 10🌶️'
         }
       ]
     },
@@ -588,11 +588,11 @@ document.addEventListener('DOMContentLoaded', () => {
       badgeText: '🐈 MENG-MENG',
       badgeClass: 'badge-meng',
       title: 'Mengenang Meng-meng 😔',
-      subtitle: 'Mengenang meng-meng😔 — Meng-meng tersayang yang selalu ada di hati kita 🤍',
+      subtitle: 'Mari Mengenang meng-meng😔🤍',
       photos: [
         {
           src: './Meng meng sad.jpeg',
-          caption: 'Meng-meng muka judes tapi imut 😔🤍 — Rest in love, meng-meng kesayangan kita berdua!'
+          caption: 'Rest in love meng meng'
         }
       ]
     }
