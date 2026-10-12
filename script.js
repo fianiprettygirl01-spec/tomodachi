@@ -790,7 +790,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       envelopeScreen.classList.add('opened');
       document.body.style.overflow = '';
-      showToast('🌸 Selamat datang, Gil chan! Bukti persahabatan kita ✨');
+      showToast('🌸 Tadaaaaaa ✨');
     }, 850);
   }
 
