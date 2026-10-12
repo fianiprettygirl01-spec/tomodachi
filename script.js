@@ -409,7 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const catQuotes = [
     '"Nih bunga sakura, next time kamu liat sendiri di Jepang ya" 🌸',
     '"Ganbatte ne!" 👊',
-    '"Jangan lupa istirahat yang Gil chan" ☕',
+    '"Jangan lupa istirahat ya Gil chan" ☕',
     '"Otsukaresama deshita! Bumi lebih seru karena ada kamu gil chan" ✨',
     '"Kimi wa tsuyoiiii" 💪',
     '"Ini bunga juga, jangan kamu taruh kulkas ya" 🌼',
