@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>おつかれさまでした • Terima Kasih Sahabat!</title>
+  <meta name="description" content="Website ucapan terima kasih dan apresiasi untuk sahabat terbaik. おつかれさまでした (Otsukaresama deshita) — terima kasih sudah menjadi kuat!">
+  <meta name="keywords" content="sahabat, otsukaresama deshita, arigatou gozaimasu, terima kasih, ucapan sahabat, brotherhood">
+  <meta name="author" content="Sahabat Terbaik">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="おつかれさまでした • Terima Kasih Sahabat!">
+  <meta property="og:description" content="Terima kasih sudah selalu berjuang dan menjadi kuat, bro. ありがとうございます!">
+  <meta property="og:image" content="./sky.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💐</text></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Zen Maru Gothic & Noto Sans JP -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Ambient Sky Particles Canvas -->
+  <canvas id="sky-canvas"></canvas>
+
+  <!-- Top Navigation & Controls Bar -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="brand-badge">
+        <span class="badge-icon">絆</span>
+        <span class="badge-text">KIZUNA • BROTHERHOOD</span>
+      </div>
+
+      <div class="header-actions">
+        <!-- Ambient Lo-fi Audio Toggle -->
+        <button id="audio-toggle-btn" class="ctrl-btn" title="Nyalakan / Matikan Musik Lofi Pengiring" aria-label="Toggle Sound">
+          <span class="ctrl-icon" id="audio-icon">🎵</span>
+          <span class="ctrl-text" id="audio-text">Suara: Off</span>
+          <span class="audio-waves" id="audio-waves">
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+          </span>
+        </button>
+
+        <!-- Quick Surprise Trigger in Nav -->
+        <button id="nav-surprise-btn" class="nav-cta-btn">
+          <span>🎁 Buka Kejutan</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrap -->
+  <main class="main-wrapper">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-bg-overlay"></div>
+      
+      <div class="hero-grid">
+        <!-- Hero Text Column -->
+        <div class="hero-content">
+          <div class="tag-pill">
+            <span class="tag-dot"></span>
+            <span class="tag-jp">特別な親友へ</span>
+            <span class="tag-divider">|</span>
+            <span class="tag-id">Untuk Sahabat Tangguh</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="jp-heading">おつかれさまでした</span>
+            <span class="main-subheading">Terima Kasih Sudah Menjadi Kuat, Bro!</span>
+          </h1>
+
+          <p class="hero-description">
+            Hidup mungkin nggak selalu mudah dan banyak hal yang menguras energimu. Tapi lu tetap berdiri tegak, bertahan, dan melangkah sejauh ini. Bangga banget punya sahabat sekuat lu.
+          </p>
+
+          <!-- Interactive CTAs -->
+          <div class="hero-cta-group">
+            <button id="hero-surprise-btn" class="primary-spark-btn" id="btn-surprise-main">
+              <span class="btn-flare"></span>
+              <span class="btn-icon">✨</span>
+              <span class="btn-label">Buka Kejutan Sahabat</span>
+              <span class="btn-subtext">Tap untuk membuka rasa terima kasih</span>
+            </button>
+
+            <button id="cheer-fist-btn" class="secondary-glass-btn">
+              <span class="btn-icon">👊</span>
+              <span class="btn-label">Kirim Tos Semangat</span>
+              <span class="fist-counter-badge" id="fist-count">0</span>
+            </button>
+          </div>
+
+          <!-- Quick Stats / Highlights -->
+          <div class="bro-badges">
+            <div class="badge-item">
+              <span class="badge-symbol">💪</span>
+              <div class="badge-desc">
+                <strong>100% Tangguh</strong>
+                <span>Pantang Menyerah</span>
+              </div>
+            </div>
+            <div class="badge-item">
+              <span class="badge-symbol">🤝</span>
+              <div class="badge-desc">
+                <strong>Sahabat Sejati</strong>
+                <span>Solid Selalu</span>
+              </div>
+            </div>
+            <div class="badge-item">
+              <span class="badge-symbol">☕</span>
+              <div class="badge-desc">
+                <strong>Waktunya Rehat</strong>
+                <span>Ambil Napas Dulu</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Mascot / Interactive Cat Column -->
+        <div class="hero-mascot-card">
+          <div class="mascot-frame">
+            <div class="mascot-glow"></div>
+            
+            <!-- Speech Bubble from Cat -->
+            <div class="speech-bubble" id="cat-speech">
+              <span class="bubble-text">"Nih bunga spesial buat lu, bro! Lu udah berjuang hebat hari ini!" 🌸</span>
+              <span class="bubble-tip"></span>
+            </div>
+
+            <!-- Cat Image Container with Interactive Pop -->
+            <div class="mascot-img-wrapper" id="mascot-interact-zone" title="Klik si kucing buat disemangatin!">
+              <img src="./cat flower.jpg" alt="Kucing memegang buket bunga" class="cat-flower-img" id="cat-flower-img">
+              <div class="click-hint">
+                <span>👆 Klik si Kucing</span>
+              </div>
+            </div>
+
+            <!-- Mascot Footer Details -->
+            <div class="mascot-meta">
+              <span class="mascot-name">Kucing Pembawa Bunga 🐾</span>
+              <p class="mascot-motto">“Kadang yang kita butuhin cuma jeda dan seseorang yang bilang: lu keren!”</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Kapsul Semangat / Omikuji Cards -->
+    <section class="capsules-section" id="capsules">
+      <div class="section-header">
+        <span class="section-tag">おみくじ • OMIKUJI SEMANGAT</span>
+        <h2 class="section-title">Kapsul Pengingat Hari Ini</h2>
+        <p class="section-subtitle">Pilih dan buka kartu di bawah ini saat kamu butuh suntikan energi dan motivasi ekstra.</p>
+      </div>
+
+      <div class="cards-grid">
+        <!-- Card 1 -->
+        <div class="booster-card" data-card="1">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="card-top-icon">🛡️</div>
+              <span class="card-kanji">強 さ</span>
+              <h3 class="card-name">Ketangguhan</h3>
+              <p class="card-hint">Klik untuk membaca pesan</p>
+              <span class="card-action-cue">Buka Kartu ➔</span>
+            </div>
+            <div class="card-back">
+              <span class="back-kanji-stamp">強い心</span>
+              <h4>Kamu Lebih Kuat Dari Masalahmu</h4>
+              <p>Mungkin hari ini berat, tapi ingat sudah berapa banyak badai yang berhasil lu lewati sebelumnya. Lu punya mental juara, bro!</p>
+              <div class="card-footer-quote">「君なら乗り越えられる」</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="booster-card" data-card="2">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="card-top-icon">☕</div>
+              <span class="card-kanji">休 息</span>
+              <h3 class="card-name">Izin Istirahat</h3>
+              <p class="card-hint">Klik untuk membaca pesan</p>
+              <span class="card-action-cue">Buka Kartu ➔</span>
+            </div>
+            <div class="card-back">
+              <span class="back-kanji-stamp">休もう</span>
+              <h4>Istirahat Bukan Berarti Menyerah</h4>
+              <p>Mesin tercanggih pun butuh waktu dingin. Tarik napas panjang, minum kopi atau tidur nyenyak malam ini. Kesehatan lu nomor satu.</p>
+              <div class="card-footer-quote">「無理しないでね」</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="booster-card" data-card="3">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="card-top-icon">🤝</div>
+              <span class="card-kanji">親 友</span>
+              <h3 class="card-name">Ada Sahabat</h3>
+              <p class="card-hint">Klik untuk membaca pesan</p>
+              <span class="card-action-cue">Buka Kartu ➔</span>
+            </div>
+            <div class="card-back">
+              <span class="back-kanji-stamp">絆</span>
+              <h4>Gak Perlu Nanggung Sendiri</h4>
+              <p>Kalau capek atau butuh teman ngobrol, pintu gue selalu terbuka. Mau cerita hal konyol atau curhat serius, gue siap dengerin.</p>
+              <div class="card-footer-quote">「いつでも味方だよ」</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="booster-card" data-card="4">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="card-top-icon">🚀</div>
+              <span class="card-kanji">未 来</span>
+              <h3 class="card-name">Langkah Maju</h3>
+              <p class="card-hint">Klik untuk membaca pesan</p>
+              <span class="card-action-cue">Buka Kartu ➔</span>
+            </div>
+            <div class="card-back">
+              <span class="back-kanji-stamp">前進</span>
+              <h4>Satu Langkah Kecil Setiap Hari</h4>
+              <p>Nggak perlu terburu-buru. Kemajuan sekecil apa pun tetaplah kemajuan. Nikmati perjalanannya, tujuan lu udah semakin dekat!</p>
+              <div class="card-footer-quote">「一歩一歩、確実に」</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Surat Persahabatan (The Friendship Letter) -->
+    <section class="letter-section">
+      <div class="letter-box">
+        <div class="letter-header">
+          <div class="letter-stamp">
+            <span class="stamp-border"></span>
+            <span class="stamp-char">感謝</span>
+            <span class="stamp-sub">GRATITUDE</span>
+          </div>
+          <div class="letter-title-wrap">
+            <span class="letter-to">To: Sahabat Perjuangan 👊</span>
+            <h2 class="letter-title">Catatan Kecil Untuk Sahabatku</h2>
+          </div>
+        </div>
+
+        <div class="letter-body">
+          <p>Bro,</p>
+          <p>
+            Mungkin kita jarang ngomong yang puitis atau bertele-tele, karena sebagai cowok kita biasanya cuma santai ketawa bareng. Tapi lewat web ini, gue pengen ngomong serius dan tulus:
+          </p>
+          <div class="quote-callout">
+            <p>
+              <strong>"おつかれさまでした (Otsukaresama deshita)."</strong><br>
+              Terima kasih banyak sudah bertahan, tetap melangkah, dan tidak menyerah meski beban di pundakmu seringkali berat. Lu hebat banget bro.
+            </p>
+          </div>
+          <p>
+            Kadang dunia menuntut kita untuk selalu kuat tanpa nanya apakah kita lagi capek atau nggak. Hari ini, izinkan diri lu buat bangga sama perjuangan lu sendiri. Apapun mimpi yang lagi lu kejar, gue bakal selalu dukung lu dari garis depan sampai garis akhir.
+          </p>
+        </div>
+
+        <div class="letter-footer">
+          <div class="signature">
+            <span class="sign-note">Sahabat lu selalu,</span>
+            <span class="sign-name">Best Friend for Life 🌟</span>
+          </div>
+
+          <button id="letter-surprise-btn" class="action-highlight-btn">
+            <span>🎁 Hadiah Spesial Dari Hati</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Visual Sky & Cat Gallery Showcase -->
+    <section class="sky-tribute-section">
+      <div class="sky-card-container">
+        <div class="sky-card-img" style="background-image: url('./sky.jpg');">
+          <div class="sky-glass-banner">
+            <span class="sky-tag">青空のように高く • Seperti Langit Biru</span>
+            <h3>"Langit cerah selalu menanti setelah badai yang paling gelap berlalu."</h3>
+            <p>Teruslah melangkah dengan kepala tegak!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Grand Surprise Modal (Pop-up with "ありがとうございます") -->
+  <div class="modal-backdrop" id="surprise-modal" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modal-close" aria-label="Tutup Kejutan">✕</button>
+      
+      <!-- Modal Inner Animation Content -->
+      <div class="modal-badge">
+        <span>🎉 SURPRISE APPRECIATION 🎉</span>
+      </div>
+
+      <div class="modal-highlight-jp">
+        <h2 class="arigatou-title" id="arigatou-text">ありがとうございます</h2>
+        <span class="arigatou-romaji">Arigatou Gozaimasu!</span>
+      </div>
+
+      <div class="modal-cat-preview">
+        <img src="./cat flower.jpg" alt="Meme Cat with Bouquet" class="modal-cat-img">
+        <div class="flower-sparkles">✨🌸✨</div>
+      </div>
+
+      <div class="modal-message">
+        <p class="modal-headline">"Terima kasih sudah menjadi sahabat paling keren dan bisa diandalkan!"</p>
+        <p class="modal-text">
+          Terima kasih atas segala tawa, waktu, cerita, dan dukungan yang udah lu kasih selama ini. Terima kasih udah jadi sosok yang tangguh, setia kawan, dan pantang menyerah. Dunia beruntung punya orang sehebat lu, bro!
+        </p>
+      </div>
+
+      <div class="modal-reaction-tray">
+        <span class="reaction-label">Reaksi Bro:</span>
+        <div class="reaction-btns">
+          <button class="react-btn" data-reaction="👊" title="Bro Fist">👊 Tos Bro</button>
+          <button class="react-btn" data-reaction="🔥" title="Membara">🔥 Membara!</button>
+          <button class="react-btn" data-reaction="🍻" title="Nongkrong">🍻 Gass Nongkrong</button>
+          <button class="react-btn" data-reaction="❤️" title="Terharu">❤️ Respect</button>
+        </div>
+        <div class="reaction-toast" id="reaction-toast"></div>
+      </div>
+
+      <div class="modal-actions">
+        <button id="modal-confetti-btn" class="modal-firework-btn">
+          <span>🎊 Tembak Kembang Api Lagi!</span>
+        </button>
+        <button id="modal-dismiss-btn" class="modal-secondary-btn">
+          <span>Tutup</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Floating Bro Toast -->
+  <div id="floating-toast" class="floating-toast"></div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-jp">心から感謝を込めて • Terima Kasih dari Hati</div>
+      <p class="footer-copy">Dibuat khusus untuk sahabat tercinta • Siap di-hosting di Vercel</p>
+      <div class="footer-links">
+        <a href="#top" class="back-to-top">Kembali ke Atas ⬆</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
