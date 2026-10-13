@@ -476,10 +476,10 @@ document.addEventListener('DOMContentLoaded', () => {
       launchConfetti(rect.left + rect.width / 2, rect.top, 16);
 
       const cheeringTexts = [
-        '👊 Tos bro! Solid selamanya!',
-        '🔥 Energi bertambah! Semangat terus!',
-        '🤝 Sahabat sejati pantang mundur!',
-        '✨ Bro power +100!'
+        '👊 Ganbatte nee Gil chan!',
+        '❤️‍🩹 Tsuyoii na gil chan!',
+        '🤝 Nice to meet gil chan',
+        '✨ Nee, ureshii?'
       ];
       showToast(cheeringTexts[Math.floor(Math.random() * cheeringTexts.length)]);
     });
