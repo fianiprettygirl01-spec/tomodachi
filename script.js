@@ -373,9 +373,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const reactionMessages = {
     '👊': 'Ganbatte nee! 👊',
-    '🔥': 'Ini api untuk bakar sate btw 🔥',
+    '🔥': 'Ini api untuk masak mie gacoan level 10 buat kamu 🔥',
     '💫': 'Kakkoii nee, Gil chan 💫',
-    '❤️': 'Big respect for, Gil chan ❤️'
+    '❤️': 'あなたがだいじょうぶなら、せかいはだいじょうぶ ❤️'
   };
 
   reactBtns.forEach(btn => {
@@ -407,13 +407,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const bubbleText = speechBubble.querySelector('.bubble-text');
 
   const catQuotes = [
+    '"あなたのいのちをたいせつにおもうひとのために、いきて" 🌱',
     '"Nih bunga sakura, next time kamu liat sendiri di Jepang ya" 🌸',
-    '"Ganbatte ne!" 👊',
+    '"Ganbatte nee!" 👊',
     '"Jangan lupa istirahat ya Gil chan" ☕',
     '"Otsukaresama deshita! Bumi lebih seru karena ada kamu gil chan" ✨',
     '"Kimi wa tsuyoiiii" 💪',
     '"Ini bunga juga, jangan kamu taruh kulkas ya" 🌼',
-    '"Ayo wujudkan anata no yumei!" 🚀'
+    '"Ayo wujudkan anata no yumei!" 🚀',
+    '"Senyum untuk hari ini gil chan!" 😋',
+    '"Apa kamu udah potong kuku hari ini gil chan?" 🪓',
+    '"Gil chan, sebaiknya kamu minum air sekarang! 🫗'
   ];
 
   let quoteIdx = 0;

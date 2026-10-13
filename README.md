@@ -17,7 +17,7 @@ Website apresiasi dan penyemangat untuk sahabat laki-laki tercinta, dengan pesan
    - Suara kuis & *sparkle fanfare* sintetis instan (Web Audio API).
    - Tombol reaksi interaktif: *👊 Tos Bro, 🔥 Membara, 🍻 Gass Nongkrong, ❤️ Respect*.
 4. **Kapsul Semangat (Omikuji 3D Flip Cards)**:
-   - 4 Kartu booster motivasi yang bisa dibalik secara 3D (Ketangguhan, Izin Istirahat, Kehadiran Sahabat, Langkah Maju).
+   - 6 Kartu booster motivasi & mood yang bisa dibalik secara 3D (Marah, Sedih, Senang, Kecewa, Sakit, Malas).
 5. **Kucing Interaktif**:
    - Klik kucing pembawa bunga untuk memunculkan pesan-pesan kocak dan menyemangati secara bergantian beserta animasi lompat (*bounce*).
 6. **Tos Semangat (Bro Fist Counter)**:
